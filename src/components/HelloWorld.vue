@@ -1,12 +1,15 @@
 <template>
   <div class="hello">
-    <p v-if="flag">是吗</p>
-    <p v-else>不是吗</p>
-    <p v-show="flag">你是谁？</p>
+    <h1>{{ msg }}</h1>
+    <ul>
+      <li v-for="(news, index) in newsList" :key="news.id" :id="news.id">{{ news.title }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
+import { h } from 'vue';
+
 export default {
   name: 'HelloWorld',
   props: {
@@ -14,7 +17,11 @@ export default {
   },
   data() {
     return {
-      flag: true,
+      newsList: [
+        { id: 1, title: '新闻1' },
+        { id: 2, title: '新闻2' },
+        { id: 3, title: '新闻3' }
+      ]
     }
   }
 }

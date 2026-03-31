@@ -1,10 +1,10 @@
 <template>
   <div class="hello">
+    <input type="text" v-model="msg">
     <p>{{ msg }}</p>
-    <button v-on:click="counter += 1">点击 {{ counter }}</button>
-    <button @click="counter += 1">点击 {{ counter }}</button>
-    <button @click="counterHandler">点击 {{ counter }}</button>
-    <button @click="Say(counter)">点击 {{ counter }}</button>
+    <input type="text" v-model.lazy="msg2">
+    <p>{{ msg2 }}</p>
+    <input type="text" v-model.trim="msg3">
   </div>
 </template>
 
@@ -18,18 +18,12 @@ export default {
   },
   data() {
     return {
-      counter: 0,
-      msg: 'Hello World'
+      msg: '',
+      msg2: '',
+      msg3: ''
     }
   },
   methods: {
-    counterHandler() {
-      this.counter += 1;
-      this.msg = "good good study, day day up"
-    },
-    Say(data) {
-      alert(data);
-    }
   }
 
 }

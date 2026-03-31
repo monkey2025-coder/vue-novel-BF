@@ -1,9 +1,10 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <ul>
-      <li v-for="(news, index) in newsList" :key="news.id" :id="news.id">{{ news.title }}</li>
-    </ul>
+    <p>{{ msg }}</p>
+    <button v-on:click="counter += 1">点击 {{ counter }}</button>
+    <button @click="counter += 1">点击 {{ counter }}</button>
+    <button @click="counterHandler">点击 {{ counter }}</button>
+    <button @click="Say(counter)">点击 {{ counter }}</button>
   </div>
 </template>
 
@@ -17,13 +18,20 @@ export default {
   },
   data() {
     return {
-      newsList: [
-        { id: 1, title: '新闻1' },
-        { id: 2, title: '新闻2' },
-        { id: 3, title: '新闻3' }
-      ]
+      counter: 0,
+      msg: 'Hello World'
+    }
+  },
+  methods: {
+    counterHandler() {
+      this.counter += 1;
+      this.msg = "good good study, day day up"
+    },
+    Say(data) {
+      alert(data);
     }
   }
+
 }
 </script>
 

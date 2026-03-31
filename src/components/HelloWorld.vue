@@ -1,10 +1,8 @@
 <template>
   <div class="hello">
-    <p>{{ msg }}</p>
-    <div v-html="rawHtml"></div>
-    <div v-bind:id="dynamicId" :class="dynamicClass">This div has a dynamic id</div>
-    <p>{{ num  + 10}}</p>
-    <p>{{ flag ? 'Flag is true' : 'Flag is false' }}</p>
+    <p v-if="flag">是吗</p>
+    <p v-else>不是吗</p>
+    <p v-show="flag">你是谁？</p>
   </div>
 </template>
 
@@ -16,11 +14,6 @@ export default {
   },
   data() {
     return {
-      msg: 'Hello World',
-      rawHtml: '<span style="color: red">This is raw HTML</span>',
-      dynamicId: 'my-id',
-      dynamicClass: 'my-class',
-      num: 10,
       flag: true,
     }
   }

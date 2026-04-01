@@ -1,6 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>props 传递数据 {{ title }}</h1>
+    <ul>
+      <li v-for="value in people" :key="value">{{ value }}</li>
+    </ul>
   </div>
 </template>
 
@@ -10,7 +13,16 @@ import { h } from 'vue';
 export default {
   name: 'Mycomponents',
   props: {
-    msg: String
+    title: {
+      type: String,
+      default: 'Mycomponents'
+    },
+    people: {
+      type: Array,
+      default: function(){
+        return []
+      }
+    }
   },
   data() {
     return {

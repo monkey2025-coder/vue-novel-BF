@@ -1,7 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <Mycomponents />
+  <Mycomponents :title="title" :people="people"/>
 </template>
 
 <script>
@@ -10,6 +10,12 @@ import Mycomponents from './components/Mycomponents.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      title: 'App',
+      people: ["123","456"]
+    }
+  },
   components: {
     HelloWorld,
     Mycomponents

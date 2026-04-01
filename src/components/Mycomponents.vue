@@ -8,13 +8,13 @@
 import { h } from 'vue';
 
 export default {
-  name: 'HelloWorld',
+  name: 'Mycomponents',
   props: {
     msg: String
   },
   data() {
     return {
-      msg: 'HelloWorld',
+      msg: 'Mycomponents',
     }
   },
   methods: {

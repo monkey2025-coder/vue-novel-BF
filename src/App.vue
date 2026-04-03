@@ -2,12 +2,14 @@
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
   <Mycomponents @onEvent="handleEvent"/>
+  <ComponentLifecycle />
   <p>{{ msg }}</p>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Mycomponents from './components/Mycomponents.vue'
+import ComponentLifecycle from './components/ComponentLifecycle.vue'
 
 export default {
   name: 'App',
@@ -20,7 +22,8 @@ export default {
   },
   components: {
     HelloWorld,
-    Mycomponents
+    Mycomponents,
+    ComponentLifecycle
   },
   methods: {
     handleEvent(data) {

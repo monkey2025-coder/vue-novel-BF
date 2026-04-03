@@ -10,6 +10,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import Mycomponents from './components/Mycomponents.vue'
 import ComponentLifecycle from './components/ComponentLifecycle.vue'
+import api from './api/index.js'
 
 export default {
   name: 'App',
@@ -30,6 +31,15 @@ export default {
       console.log('父组件接收到了事件，携带的数据是：', data);
       this.msg = data;
     }
+  },
+  mounted() {
+    api.getUserInfo().then(res => {
+      console.log('API 请求成功：', res.data);
+      this.msg = 'API 请求成功，用户信息已获取！';
+    }).catch(err => {
+      console.error('API 请求失败：', err);
+      this.msg = 'API 请求失败，请检查控制台错误信息！';
+    })
   }
 }
 </script>

@@ -1,29 +1,34 @@
 <template>
-  <div class="hello">
-    <h1>{{ title }}</h1>
-    <button @click="sendClickHandler">点击传递</button>
+  <div>
+    <div>{{ data }}</div>
   </div>
 </template>
 
 <script>
-import { h } from 'vue';
+import axios from 'axios'
 
 export default {
-  name: 'Mycomponents',
-  props: {
-
-  },
   data() {
     return {
-      message: 'Mycomponents',
+      data: ''
     }
   },
-  methods: {
-    sendClickHandler() {
-      this.$emit('onEvent', this.message);
-    }
-  }
 
+  methods: {
+    async getData() {
+      try {
+        const res = await axios.get('https://jsonplaceholder.typicode.com/todos/1')
+        this.data = res.data
+      } catch (err) {
+        console.error('请求失败', err)
+      }
+    }
+  },
+
+  // 生命周期：组件挂载完立即执行
+  mounted() {
+    this.getData()
+  }
 }
 </script>
 

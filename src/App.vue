@@ -1,7 +1,8 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <Mycomponents :title="title" :people="people"/>
+  <Mycomponents @onEvent="handleEvent"/>
+  <p>{{ msg }}</p>
 </template>
 
 <script>
@@ -13,12 +14,19 @@ export default {
   data() {
     return {
       title: 'App',
-      people: ["123","456"]
+      people: ["123","456"],
+      msg: ''
     }
   },
   components: {
     HelloWorld,
     Mycomponents
+  },
+  methods: {
+    handleEvent(data) {
+      console.log('父组件接收到了事件，携带的数据是：', data);
+      this.msg = data;
+    }
   }
 }
 </script>

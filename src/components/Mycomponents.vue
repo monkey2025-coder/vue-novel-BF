@@ -1,9 +1,7 @@
 <template>
   <div class="hello">
-    <h1>props 传递数据 {{ title }}</h1>
-    <ul>
-      <li v-for="value in people" :key="value">{{ value }}</li>
-    </ul>
+    <h1>{{ title }}</h1>
+    <button @click="sendClickHandler">点击传递</button>
   </div>
 </template>
 
@@ -13,23 +11,17 @@ import { h } from 'vue';
 export default {
   name: 'Mycomponents',
   props: {
-    title: {
-      type: String,
-      default: 'Mycomponents'
-    },
-    people: {
-      type: Array,
-      default: function(){
-        return []
-      }
-    }
+
   },
   data() {
     return {
-      msg: 'Mycomponents',
+      message: 'Mycomponents',
     }
   },
   methods: {
+    sendClickHandler() {
+      this.$emit('onEvent', this.message);
+    }
   }
 
 }

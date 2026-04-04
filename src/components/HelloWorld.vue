@@ -3,6 +3,18 @@
     <h1>{{ msg }}</h1>
     <p>当前计数: {{ count.count }}</p>
     <button @click="increment">增加</button>
+
+    <div class="button-row">
+      <el-button>Default</el-button>
+      <el-button type="primary">Primary</el-button>
+      <el-button type="success">Success</el-button>
+      <el-button type="info">Info</el-button>
+      <el-button type="warning">Warning</el-button>
+      <el-button type="danger">Danger</el-button>
+    </div>
+    <el-icon size="24" color="#409eff">
+      <Edit />
+    </el-icon>
   </div>
 </template>
 

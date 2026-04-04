@@ -1,7 +1,8 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <router-link to="/">Home</router-link> | 
-  <router-link to="/about">About</router-link>
+  <router-link to="/about">About</router-link> | 
+  <router-link to="/news">News</router-link>
   <router-view></router-view>
   <p>{{ msg }}</p>
 </template>

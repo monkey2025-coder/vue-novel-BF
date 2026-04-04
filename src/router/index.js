@@ -11,7 +11,20 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: About
+    component: About,
+    redirect: '/about/info',
+    children: [
+      {
+        path: 'info',
+        name: 'aboutInfo',
+        component: () => import('@/views/AboutSub/AboutInfo.vue')
+      },
+      {
+        path: 'us',
+        name: 'aboutUs',
+        component: () => import('@/views/AboutSub/AboutUs.vue')
+      },
+    ]
   },
   // 异步加载 除了首页之外，最好都是这样异步加载进来
   {

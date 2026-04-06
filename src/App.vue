@@ -1,37 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="HelloWorld" />
-  <router-link to="/">Home</router-link> | 
-  <router-link to="/about">About</router-link> | 
-  <router-link to="/news">News</router-link>
-  <router-view></router-view>
-  <p>{{ msg }}</p>
+  <Index msg="Hello Vue 3!" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Mycomponents from './components/Mycomponents.vue'
-import ComponentLifecycle from './components/ComponentLifecycle.vue'
+import Index from './components/Index.vue'
 
 export default {
   name: 'App',
   data() {
     return {
-      title: 'App',
-      people: ["123","456"],
-      msg: ''
     }
   },
   components: {
-    HelloWorld,
-    Mycomponents,
-    ComponentLifecycle
+    Index
   },
   methods: {
-    handleEvent(data) {
-      console.log('父组件接收到了事件，携带的数据是：', data);
-      this.msg = data;
-    }
+
   }
 }
 </script>

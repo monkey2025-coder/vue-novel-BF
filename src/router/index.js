@@ -28,19 +28,14 @@ const routes = [
   },
   // 异步加载 除了首页之外，最好都是这样异步加载进来
   {
-    path: '/news',
-    name: 'news',
-    component: () => import('@/views/News.vue')
-  },
-  {
-    path: '/news/:id',
-    name: 'newsDetails',
-    component: () => import('@/views/NewsDetails.vue')
-  },
-  {
     path: '/outline/:id',
     name: 'outlineDetails',
     component: () => import('@/views/OutlineDetails.vue')
+  },
+  {
+    path: '/chapters/:id',
+    name: 'chapterDetails',
+    component: () => import('@/views/chapters.vue')
   }
 ]
 

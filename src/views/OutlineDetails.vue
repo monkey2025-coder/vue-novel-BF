@@ -1,7 +1,7 @@
 <template>
   <div class="outline-details">
     <el-button type="primary" @click="goBack">返回</el-button>
-    <h1>Outline Details</h1>
+    <el-button type="primary" @click="goToDetail()">返回首页</el-button>
     <el-card v-if="outline" class="outline-card">
       <template #header>
         <div class="card-header">
@@ -72,7 +72,8 @@ export default {
       outline: null,
       activeSections: [],
       activeSubsections: {},
-      showJson: false
+      showJson: false,
+      chapterId: this.$route.params.id
     }
   },
   mounted() {
@@ -108,6 +109,9 @@ export default {
     },
     toggleJsonView() {
       this.showJson = !this.showJson
+    },
+    goToDetail() {
+      this.$router.push(`/chapters/${this.chapterId}`)
     }
   }
 }

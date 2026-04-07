@@ -1,0 +1,51 @@
+{
+  "status": "success",
+  "chapters": [
+    {
+      "id": 43,
+      "outline_id": 8,
+      "chapter_id": "section-1",
+      "title": "序章：无法拒绝的“特训”契约",
+      "content": "",
+      "summary": "",
+      "created_at": "2026-03-31 22:43:21.501220"
+    },
+    {
+      "id": 44,
+      "outline_id": 8,
+      "chapter_id": "section-2",
+      "title": "破灭的日常：深夜公园的初次露出",
+      "content": "", 
+      "summary": "",
+      "created_at": "2026-03-31 22:44:55.547495"
+    },
+    {
+      "id": 45,
+      "outline_id": 8,
+      "chapter_id": "section-3",
+      "title": "恐惧的升级：偶像工作间的背德调教",
+      "content": "",
+      "summary": "",
+      "created_at": "2026-03-31 22:46:52.562041"
+    },
+    {
+      "id": 46,
+      "outline_id": 8,
+      "chapter_id": "section-4",
+      "title": "姐姐的阴影：白石姐妹的禁断秘密",
+      "content":"", 
+      "summary": "",
+      "created_at": "2026-03-31 22:49:03.244074"
+    },
+    {
+      "id": 47,
+      "outline_id": 8,
+      "chapter_id": "section-5",
+      "title": "终极的舞台：彻底堕落的胆小鬼",
+      "content": "",
+      "summary": "",
+      "created_at": "2026-03-31 22:51:11.625805"
+    }
+  ],
+  "total": 5
+}

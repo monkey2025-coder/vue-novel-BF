@@ -9,6 +9,11 @@ const routes = [
     component: Home
   },
   {
+    path: '/create-outline',
+    name: 'createOutline',
+    component: () => import('@/views/CreateOutline.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     component: About,

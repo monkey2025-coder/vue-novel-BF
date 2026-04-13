@@ -1,5 +1,9 @@
 <template>
  <div class="home-container">
+    <div class="header">
+        <h1>大纲列表</h1>
+        <el-button type="primary" @click="goToCreate">创建大纲</el-button>
+    </div>
     <div>
         <h2>请求结果</h2>
     </div>
@@ -18,20 +22,16 @@
         <el-table-column label="Action" width="100">
             <template #default="scope">
                 <el-button type="success" icon="Check" circle @click="goToDetail(scope.row.id)" />
+                <el-button type="danger"  icon="Delete" circle @click="deleteOutline(scope.row.id)" />
             </template>
         </el-table-column>
     </el-table>
  </div>
 </template>
 <script>
-// 现在唯一不解的是这里要放什么呢？
-// 在初期的时候 这里只是一个展示的界面
-// 先读取出来先~~~
-// 默认启动，静默加载，然后再根据id来获取数据
-
 import {mapState, mapGetters, mapMutations} from 'vuex'
 import axios from 'axios'
-import { Check, Search } from '@element-plus/icons-vue'
+import { Check, Search, Delete } from '@element-plus/icons-vue'
 
 
 export default {
@@ -46,7 +46,6 @@ export default {
         this.sendRequest()
     },
 
-    // 专门读取store中的数据
     computed: {
         
     },
@@ -66,9 +65,23 @@ export default {
                     this.loading = false
                 })
         },
-        // 跳转到详情页面
         goToDetail(id) {
             this.$router.push(`/outline/${id}`)
+        },
+        goToCreate() {
+            this.$router.push('/create-outline')
+        },
+        deleteOutline(id) {
+            axios.post('/api/outlines/delete', {
+                outline_id: id
+            })
+            .then(res => {
+                this.$message.success(res.data.msg)
+                this.sendRequest()
+            })
+            .catch(error => {
+                    console.error('Error:', error)
+            })
         }
     }
 }
@@ -79,6 +92,13 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .el-table {

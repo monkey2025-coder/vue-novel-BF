@@ -2,7 +2,10 @@
  <div class="home-container">
     <div class="header">
         <h1>大纲列表</h1>
-        <el-button type="primary" @click="goToCreate">创建大纲</el-button>
+        <div class="header-right">
+            <TaskStatusWidget />
+            <el-button type="primary" @click="goToCreate">创建大纲</el-button>
+        </div>
     </div>
     <div>
         <h2>请求结果</h2>
@@ -32,9 +35,13 @@
 import {mapState, mapGetters, mapMutations} from 'vuex'
 import axios from 'axios'
 import { Check, Search, Delete } from '@element-plus/icons-vue'
+import TaskStatusWidget from '@/components/TaskStatusWidget.vue'
 
 
 export default {
+    components: {
+        TaskStatusWidget
+    },
     data() {
         return {
             result: '',
@@ -99,6 +106,12 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .el-table {

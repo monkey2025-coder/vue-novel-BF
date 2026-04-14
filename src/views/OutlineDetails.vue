@@ -1,8 +1,13 @@
 <template>
   <div class="outline-details">
-    <el-button type="primary" @click="goBack">返回</el-button>
-    <el-button type="primary" @click="goToDetail()">查看章节内容</el-button>
-    <el-button type="warning" @click="openEditDialog">修改大纲</el-button>
+    <div class="header">
+      <div class="header-left">
+        <el-button type="primary" @click="goBack">返回</el-button>
+        <el-button type="primary" @click="goToDetail()">查看章节内容</el-button>
+        <el-button type="warning" @click="openEditDialog">修改大纲</el-button>
+      </div>
+      <TaskStatusWidget />
+    </div>
     <el-card v-if="outline" class="outline-card">
       <template #header>
         <div class="card-header">
@@ -185,8 +190,12 @@
 
 <script>
 import axios from 'axios'
+import TaskStatusWidget from '@/components/TaskStatusWidget.vue'
 
 export default {
+    components: {
+        TaskStatusWidget
+    },
   data() {
     return {
       outline: null,
@@ -402,6 +411,18 @@ export default {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-left {
+  display: flex;
+  gap: 10px;
 }
 
 .outline-card,

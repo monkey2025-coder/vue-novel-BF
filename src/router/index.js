@@ -41,6 +41,11 @@ const routes = [
     path: '/chapters/:id',
     name: 'chapterDetails',
     component: () => import('@/views/chapters.vue')
+  },
+  {
+    path: '/tasks',
+    name: 'tasks',
+    component: () => import('@/views/TaskManager.vue')
   }
 ]
 

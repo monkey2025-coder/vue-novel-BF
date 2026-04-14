@@ -1,10 +1,13 @@
 <template>
   <div class="chapters-container">
-    <el-page-header @back="goBack">
-      <template #title>
-        <span class="page-title">章节列表</span>
-      </template>
-    </el-page-header>
+    <div class="page-header-wrapper">
+      <el-page-header @back="goBack">
+        <template #title>
+          <span class="page-title">章节列表</span>
+        </template>
+      </el-page-header>
+      <TaskStatusWidget />
+    </div>
 
     <el-card class="chapters-card" shadow="hover">
       <template #header>
@@ -34,15 +37,11 @@
               <el-icon><View /></el-icon>
               查看
             </el-button>
-            <el-button type="success" size="small" @click="editChapter(row)">
-              <el-icon><Edit /></el-icon>
-              编辑
-            </el-button>
             <el-button type="danger" size="small" @click="deleteChapter(row)">
               <el-icon><Delete /></el-icon>
               删除
             </el-button>
-            <el-button type="primary" size="small" @click="autoReviseChapter(row)">
+            <el-button type="success" size="small" @click="autoReviseChapter(row)">
               <el-icon><Refresh /></el-icon>
               自动ai精修
             </el-button>
@@ -242,8 +241,12 @@
 
 <script>
 import axios from 'axios'
+import TaskStatusWidget from '@/components/TaskStatusWidget.vue'
 
 export default {
+    components: {
+        TaskStatusWidget
+    },
   data() {
     return {
       chapters: [],
@@ -520,6 +523,13 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.page-header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .page-title {
